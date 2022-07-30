@@ -2,8 +2,6 @@ const toDoForm = document.querySelector("#todo-form");
 const toDoFormInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector("#todo_list");
 
-const toDoListArray = [];
-
 function paintToDo(newToDo) {
   //todo리스트에 새로 추가할 newLi의 틀 생성
   const newLi = document.createElement("li");
@@ -17,12 +15,8 @@ function paintToDo(newToDo) {
   newBtnDel.addEventListener("click", onClickBtnDel);
   //newLi에 값 할당
   newSpan.innerText = newToDo;
-  //todo리스트에 newLi를 추가
+  //todo리스트에 newLi를 삽입
   toDoList.append(newLi);
-  //todo리스트 저장,로드에 사용할 toDoListArray배열 업데이트
-  toDoListArray.push(newToDo);
-  console.log(toDoListArray);
-  console.log(typeof toDoListArray);
 }
 
 function onSubmitToDoList(event) {
@@ -38,23 +32,6 @@ function onClickBtnDel(event) {
   //toDoListArray에서도 값 삭제
 }
 
-function onload() {
-  const listSaveSize = localStorage.getItem("listSaveSize");
-  for (let i = 0; i < listSaveSize; i++) {
-    const tmp = localStorage.getItem(`listSave${i}`);
-    paintToDo(tmp);
-  }
-}
-
-function onUnload() {
-  localStorage.setItem("listSaveSize", toDoListArray.length);
-  for (let i = 0; i < toDoListArray.length; i++) {
-    localStorage.setItem(`listSave${i}`, toDoListArray[i]);
-  }
-}
-
-window.addEventListener("load", onload);
-window.addEventListener("unload", onUnload);
 toDoForm.addEventListener("submit", onSubmitToDoList);
 
 //새로고침해도 데이터 저장
