@@ -7,14 +7,14 @@ const toDoListArray = [];
 function paintToDo(newToDo) {
   //todo리스트에 새로 추가할 newLi의 틀 생성
   const newLi = document.createElement("li");
-  const newDiv = document.createElement("div");
   const newSpan = document.createElement("span");
   const newBtnDel = document.createElement("input");
   newBtnDel.type = "submit";
   newBtnDel.value = "x";
-  newLi.append(newDiv);
-  newDiv.append(newSpan);
-  newDiv.append(newBtnDel);
+  newLi.append(newSpan);
+  newLi.append(newBtnDel);
+  //newBtnDel에 리스트 삭제를 담당할 이벤트리스너 추가
+  newBtnDel.addEventListener("click", onClickBtnDel);
   //newLi에 값 할당
   newSpan.innerText = newToDo;
   //todo리스트에 newLi를 추가
@@ -30,6 +30,12 @@ function onSubmitToDoList(event) {
   const newToDo = toDoFormInput.value;
   toDoFormInput.value = "";
   paintToDo(newToDo);
+}
+
+function onClickBtnDel(event) {
+  const li = event.target.parentNode;
+  li.remove();
+  //toDoListArray에서도 값 삭제
 }
 
 function onload() {
