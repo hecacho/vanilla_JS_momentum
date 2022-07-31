@@ -1,12 +1,4 @@
-const backgroundImgs = [
-  "img/1.jpg",
-  "img/2.jpg",
-  "img/3.jpg",
-  "img/4.jpg",
-  "img/5.jpg",
-  "img/6.jpg",
-  "img/7.jpg",
-];
+const backgroundImgs = ["img/1.png", "img/2.png", "img/3.png", "img/4.png"];
 
 const backgroundImg = document.querySelector("#background_img");
 
@@ -15,7 +7,7 @@ const chooseBackgroundImg =
 
 const bgImg = document.createElement("img");
 bgImg.src = chooseBackgroundImg;
-
+bgImg.id = "background_img";
 document.body.appendChild(bgImg);
 
 //const myName = document.createElement("요소"); -> JS에서 HTML의 요소를 생성

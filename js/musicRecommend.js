@@ -1,4 +1,4 @@
-const todayRecommendMusics = [
+const recommendMusicsArr = [
   {
     title: "踊り子",
     artist: "Vaundy",
@@ -41,13 +41,9 @@ const todayRecommendMusics = [
   },
 ];
 
-const todayRecommendMusicTitle = document.querySelector(
-  "#today_recommend_music__title"
-);
-const todayRecommendMusicArtist = document.querySelector(
-  "#today_recommend_music__artist"
-);
+const musicRecommendTitle = document.querySelector("#music_recommend__title");
+const musicRecommendArtist = document.querySelector("#music_recommend__artist");
 
-const randomNum = Math.floor(Math.random() * todayRecommendMusics.length);
-todayRecommendMusicTitle.innerText = todayRecommendMusics[randomNum].title;
-todayRecommendMusicArtist.innerText = todayRecommendMusics[randomNum].artist;
+const randomNum = Math.floor(Math.random() * recommendMusicsArr.length);
+musicRecommendTitle.innerText = recommendMusicsArr[randomNum].title;
+musicRecommendArtist.innerText = recommendMusicsArr[randomNum].artist;
